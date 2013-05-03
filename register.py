@@ -3,14 +3,22 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 import jinja2
 import os
 
+
+
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class RegisterMain(webapp.RequestHandler):
 
+       
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.out.write('<form method="POST" action="registerComplete" > <input type="submit" /> </form>')
+        test= 'ay kalam'
+        templateValues = {'test':test}
+       
+        
+        template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.out.write(template.render(templateValues))
 
 class RegisterComplete(webapp.RequestHandler):
     
