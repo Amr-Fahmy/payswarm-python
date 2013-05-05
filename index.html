@@ -60,11 +60,18 @@
          {% if publicKey is undefined %}
 			<input type="submit" class="btn btn-primary btn-large" name="action" value="Generate Key Pair">
          {% else %} 
+			<h3>Public Key</h3>
+			<pre>
+			{{ publicKey }}
+			</pre> 
+			<h3>Private Key</h3> (It's shown for illustration purpose only, in any real use this key shouldn't be displayed, or if to be transported using HTTPS and providing passcode)
+			<pre>
+			{{ privateKey }}
+			</pre>
 			<div class="alert alert-error alert-block" >
  			 <h4>Warning!</h4>
-  			<p>Their is a key pair has been generated before. If you want to regenerate new key pair press on Regenerate button.</p>
-			<input type="submit" class="btn btn-danger btn-large" name="action" value="Regenerate Key Pair">
-			
+  			 <p>Their is a key pair has been generated before. If you want to regenerate new key pair press on Regenerate button.</p>
+			 <input type="submit" class="btn btn-danger btn-large" name="action" value="Regenerate Key Pair">
 			</div>
          {% endif %}
 	    </form>
@@ -73,7 +80,7 @@
         
 		{% if publicKey is defined %}         
     		<form action="/registerRedirect" method="post" target="_blank">
-				PaySwarm Authority: <input type="text" name="submit" value="dev.payswarm.com"/>
+				PaySwarm Authority: <input type="text" name="auth_url" value="dev.payswarm.com"/>
 				<br>
 				<input type="submit" class="btn btn-primary btn-large" value="Register"/>
     		</form>
