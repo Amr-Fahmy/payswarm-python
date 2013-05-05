@@ -42,7 +42,7 @@ class RegisterMain(webapp.RequestHandler):
         # TODO: Code to generate pub/prv key pair 
         rsakey = RSA.generate(2048)
         publicKey = rsakey.publickey().exportKey('PEM')
-        privateKey = rsakey.exportKey('PEM')        
+        privateKey = rsakey.exportKey('PEM', 'P@y5w@rm2013')        
         # TODO: Store the generated key pair in DB 
         webkey = WebKeyIdentity(public_key=publicKey,
                                 private_key=privateKey)
