@@ -55,7 +55,7 @@
         <h2>Web Key Generation</h2>
         
         <p> PaySwarm Registration Process on Google App Engine using Python. Please if you need to generate new public key press on the generate button</p>
-        
+
     	<form action="/" method="post">
          {% if publicKey is undefined %}
 			<input type="submit" class="btn btn-primary btn-large" name="action" value="Generate Key Pair">
@@ -64,10 +64,6 @@
 			<pre>
 			{{ publicKey }}
 			</pre> 
-			<h3>Private Key</h3> (It's shown for illustration purpose only, in any real use this key shouldn't be displayed, or if to be transported using HTTPS and providing passcode)
-			<pre>
-			{{ privateKey }}
-			</pre>
 			<div class="alert alert-error alert-block" >
  			 <h4>Warning!</h4>
   			 <p>Their is a key pair has been generated before. If you want to regenerate new key pair press on Regenerate button.</p>
@@ -77,13 +73,12 @@
 	    </form>
 		<hr>
         <h2>Web Key Registration</h2>
-        
-		{% if publicKey is defined %}         
-    		<form action="/registerRedirect" method="post" target="_blank">
+			{% if publicKey is defined  %}
+			 <form action="/registerRedirect" method="post" target="_blank">
 				PaySwarm Authority: <input type="text" name="auth_url" value="dev.payswarm.com"/>
 				<br>
 				<input type="submit" class="btn btn-primary btn-large" value="Register"/>
-    		</form>
+    		</form>    		
 		{% else %}
 			<p>Please generate Web Key first from the button above.</p>
 		{% endif %}
@@ -94,7 +89,7 @@
         <p>&copy; PaySwarm Registration 2013</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div> <!-- /container 
 
  	<!--Functions -->
 		<script>
