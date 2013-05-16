@@ -200,7 +200,7 @@ class RegisterCallbackHandler(BaseHandler):
             registerationDate = datetime.datetime.now()
             decSigCreated = datetime.datetime.strptime(decSigCreated , '%Y-%m-%dT%H:%M:%SZ')
 
-            if (self.session['nonce']==decSigNonce):
+            if (self.session['nonce']==decSigNonce):    
                 webkey = WebKeyIdentity(public_key=webkey.public_key,
                                         private_key=webkey.private_key,
                                         creation_date = decSigCreated ,
@@ -210,11 +210,11 @@ class RegisterCallbackHandler(BaseHandler):
                                         is_registered = True, 
                                         registration_date = registerationDate)
                 webkey.put()    
-                registered = "True"
+                #registered = "True"
                 #self.session['registered']=registered
                
 
-               # self.redirect(socket.gethostname(),True)
+                self.redirect("/",True)
             
             #st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
             
